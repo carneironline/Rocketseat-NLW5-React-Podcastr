@@ -1,7 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { api } from '../../services/api';
@@ -9,6 +8,8 @@ import { convertDurationToTimeString } from '../../utils/dateTime';
 
 import styles from './episode.module.scss'
 import { usePlayerContext } from '../../contexts/PlayerContext'
+import React from 'react'
+import Head from 'next/head'
 
 type Episode = {
     id: string;
@@ -31,6 +32,10 @@ export default function Episode({ episode }: EpisodeProps) {
 
     return (
         <div className={styles.episode}>
+            <Head>
+                <title>{episode.title} | Podcastr</title>
+            </Head>
+
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
                     <button type="button">

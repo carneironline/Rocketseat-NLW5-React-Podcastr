@@ -8,7 +8,6 @@ import { usePlayerContext } from '../../contexts/PlayerContext'
 
 import styles from './styles.module.scss'
 import { convertDurationToTimeString } from '../../utils/dateTime'
-import Episode from '../../pages/episodes/[slug]'
 
 export default function Player() {
     const audioRef = useRef<HTMLAudioElement>(null)
