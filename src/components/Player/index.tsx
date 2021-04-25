@@ -11,7 +11,7 @@ import styles from './styles.module.scss'
 export default function Player() {
     const audioRef = useRef<HTMLAudioElement>(null)
 
-    const { episodeList, currentEpisodeIndex, isPlaying, togglePlay, setPlayingState } = useContext(PlayerContext)
+    const { episodeList, currentEpisodeIndex, isPlaying, togglePlay, setPlayingState, playNext, playPrevious } = useContext(PlayerContext)
 
     const episode = episodeList[currentEpisodeIndex]
 
@@ -83,7 +83,7 @@ export default function Player() {
                         <img src="/shuffle.svg" alt="Embaralhar" />
                     </button>
 
-                    <button type="button" disabled={!episode}>
+                    <button type="button" disabled={!episode} onClick={playPrevious}>
                         <img src="/play-previous.svg" alt="Tocar anterior" />
                     </button>
 
@@ -97,7 +97,7 @@ export default function Player() {
 
                     </button>
 
-                    <button type="button" disabled={!episode}>
+                    <button type="button" disabled={!episode} onClick={playNext}>
                         <img src="/play-next.svg" alt="Tocar próxima" />
                     </button>
 
